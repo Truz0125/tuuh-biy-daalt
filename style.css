@@ -422,3 +422,115 @@ footer {
         font-size: 27px;
     }
 }
+
+
+/* Accessibility, readability, and mobile navigation improvements */
+html {
+    scroll-padding-top: 95px;
+}
+
+.skip-link {
+    position: absolute;
+    left: 12px;
+    top: -60px;
+    z-index: 200;
+    padding: 10px 14px;
+    background: var(--gold);
+    color: var(--dark);
+    font-weight: 700;
+    border-radius: 3px;
+}
+
+.skip-link:focus {
+    top: 12px;
+}
+
+nav a:focus-visible,
+.btn:focus-visible,
+.menu-toggle:focus-visible,
+.sources a:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 4px;
+}
+
+.reading-note {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    max-width: 850px;
+    margin-bottom: 28px;
+    padding: 16px 20px;
+    border-left: 3px solid var(--gold);
+    background: #fffdf8;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.reading-note strong {
+    color: var(--green);
+    font-size: 14px;
+}
+
+.menu-toggle {
+    display: none;
+    border: 1px solid #c7a56880;
+    border-radius: 3px;
+    padding: 8px 12px;
+    color: #f3f0e9;
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+}
+
+.footer-note {
+    margin-top: 6px;
+    color: #9da99f;
+}
+
+@media (max-width: 800px) {
+    .header {
+        position: sticky;
+        align-items: center;
+    }
+
+    .menu-toggle {
+        display: inline-block;
+        margin-left: auto;
+    }
+
+    nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+        padding-top: 8px;
+    }
+
+    nav.is-open {
+        display: flex;
+    }
+
+    nav a {
+        padding: 10px 0;
+        border-top: 1px solid #ffffff18;
+        font-size: 14px;
+    }
+
+    .timeline {
+        padding-left: 22px;
+    }
+
+    .timeline-item::before {
+        left: -28px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
