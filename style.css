@@ -66,22 +66,43 @@ nav a:hover {
 }
 
 .hero {
-    min-height: 580px;
+    min-height: 620px;
     display: flex;
     align-items: center;
-    padding: 80px 10%;
+    padding: 90px 10%;
     color: white;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border-bottom: 1px solid #c7a56855;
     background:
-        linear-gradient(90deg,
-            rgba(15, 29, 22, 0.96),
-            rgba(15, 29, 22, 0.72),
-            rgba(15, 29, 22, 0.35)),
-        url('https://upload.wikimedia.org/wikipedia/commons/4/4b/BogdKhan.jpg')
-        center 35%/cover no-repeat;
+        radial-gradient(ellipse at 82% 45%, #c7a56822 0, transparent 24%),
+        radial-gradient(ellipse at 100% 80%, #294b3b 0, transparent 42%),
+        linear-gradient(115deg, #101a15 0%, #1c3428 58%, #17251f 100%);
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: min(46vw, 570px);
+    aspect-ratio: 1;
+    right: -6%;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 1px solid #c7a56830;
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 32px #c7a56808,
+        0 0 0 72px #c7a56808,
+        0 0 0 120px #c7a56806;
+    pointer-events: none;
 }
 
 .hero-content {
     max-width: 720px;
+    position: relative;
+    z-index: 1;
 }
 
 .subtitle,
@@ -103,6 +124,7 @@ nav a:hover {
     color: #e0e3dc;
     max-width: 560px;
     font-size: 16px;
+    line-height: 1.9;
 }
 
 .btn {
@@ -379,6 +401,12 @@ footer {
     .hero {
         min-height: 500px;
         padding: 65px 7%;
+    }
+
+    .hero::after {
+        width: 75vw;
+        right: -42%;
+        opacity: 0.7;
     }
 
     .section {
