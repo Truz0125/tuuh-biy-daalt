@@ -1,22 +1,26 @@
-
 <!DOCTYPE html>
 <html lang="mn">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <meta name="description" content="Манжийн үеийн Монголын хууль цааз, засаг захиргаа, 1911 оны үндэсний эрх чөлөөний хувьсгалын тухай сургалтын веб төсөл.">\n    <meta name="theme-color" content="#17251f">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Манжийн үеийн Монголын хууль цааз, засаг захиргаа, 1911 оны үндэсний эрх чөлөөний хувьсгалын тухай сургалтын веб төсөл.">
+    <meta name="theme-color" content="#17251f">
     <title>Монголын түүх | Манжийн үеийн хууль цааз</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>\n    <a class="skip-link" href="#main-content">Үндсэн агуулга руу очих</a>
+<body>
+    <a class="skip-link" href="#main-content">Үндсэн агуулга руу очих</a>
 
     <header class="header">
         <div class="logo">ᠮᠣᠩᠭᠣᠯ <span>ТҮҮХ</span></div>
 
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Цэс ☰</button>\n        <nav id="main-nav">
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Цэс ☰</button>
+        <nav id="main-nav">
             <a href="#home">Нүүр</a>
             <a href="#history">Түүхэн товчоо</a>
             <a href="#laws">Хууль цааз</a>
-            <a href="#1911">1911 он</a>\n            <a href="#sources">Эх сурвалж</a>
+            <a href="#1911">1911 он</a>
+            <a href="#sources">Эх сурвалж</a>
         </nav>
     </header>
 
@@ -33,7 +37,8 @@
     </section>
 
     <main id="main-content">
-        <section class="intro section" id="history">\n            <div class="reading-note"><strong>Энэ вебийн тухай</strong><span>Монголын түүхийн хичээлийн зориулалттай товч танилцуулга. Доорх эх сурвалжуудаар мэдээллээ нягтлаарай.</span></div>
+        <section class="intro section" id="history">
+            <div class="reading-note"><strong>Энэ вебийн тухай</strong><span>Монголын түүхийн хичээлийн зориулалттай товч танилцуулга. Доорх эх сурвалжуудаар мэдээллээ нягтлаарай.</span></div>
             <p class="section-label">01 — ТҮҮХЭН ТОВЧОО</p>
             <h2>Монгол орон Манжийн эрхшээлд</h2>
 
@@ -249,9 +254,23 @@
         </section>
     </main>
 
-    <footer>\n        <p class="footer-note">Зураг болон түүхэн мэдээллийг ашиглахдаа эх сурвалж, зохиогчийн эрхийг шалгана уу.</p>
+    <footer>
+        <p class="footer-note">Зураг болон түүхэн мэдээллийг ашиглахдаа эх сурвалж, зохиогчийн эрхийг шалгана уу.</p>
         <p>© 2026 Монголын түүх | Сургалтын зориулалттай веб төсөл</p>
     </footer>
 
-<script>\n        const menuButton = document.querySelector(".menu-toggle");\n        const mainNav = document.querySelector("#main-nav");\n        menuButton.addEventListener("click", () => {\n            const isOpen = menuButton.getAttribute("aria-expanded") === "true";\n            menuButton.setAttribute("aria-expanded", String(!isOpen));\n            mainNav.classList.toggle("is-open", !isOpen);\n        });\n        mainNav.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {\n            menuButton.setAttribute("aria-expanded", "false");\n            mainNav.classList.remove("is-open");\n        }));\n    </script>\n</body>
+<script>
+        const menuButton = document.querySelector(".menu-toggle");
+        const mainNav = document.querySelector("#main-nav");
+        menuButton.addEventListener("click", () => {
+            const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+            menuButton.setAttribute("aria-expanded", String(!isOpen));
+            mainNav.classList.toggle("is-open", !isOpen);
+        });
+        mainNav.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+            menuButton.setAttribute("aria-expanded", "false");
+            mainNav.classList.remove("is-open");
+        }));
+    </script>
+</body>
 </html>
