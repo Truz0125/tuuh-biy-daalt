@@ -76,8 +76,8 @@ nav a:hover {
             rgba(15, 29, 22, 0.96),
             rgba(15, 29, 22, 0.72),
             rgba(15, 29, 22, 0.35)),
-        url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2000&q=85')
-        center/cover no-repeat;
+        url('https://upload.wikimedia.org/wikipedia/commons/4/4b/BogdKhan.jpg')
+        center 35%/cover no-repeat;
 }
 
 .hero-content {
@@ -204,6 +204,23 @@ nav a:hover {
 .law-card p {
     color: var(--muted);
     font-size: 13px;
+}
+
+.law-card strong {
+    color: var(--green);
+}
+
+.law-note {
+    margin-top: 28px;
+    padding: 18px 22px;
+    border-left: 3px solid var(--gold);
+    background: #fffdf8;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.law-note strong {
+    color: var(--green);
 }
 
 .tag {
