@@ -957,3 +957,116 @@ footer {
         transition: none;
     }
 }
+
+
+/* Museum-inspired image layout: visible historical artwork on the right */
+.hero {
+    min-height: 590px;
+    padding: 76px 10%;
+    align-items: center;
+    background:
+        linear-gradient(90deg, #10251b 0%, #10251bf5 37%, #10251b9c 59%, #10251b2b 100%),
+        url("https://commons.wikimedia.org/wiki/Special:FilePath/%E6%B8%85%20%E4%BD%9A%E5%90%8D%20%E3%80%8A%E6%B8%85%E5%9C%A3%E7%A5%96%E5%BA%B7%E7%86%99%E7%9A%87%E5%B8%9D%E6%9C%9D%E6%9C%8D%E5%83%8F%E3%80%8B.jpg?width=1800")
+        center right / cover no-repeat,
+        linear-gradient(115deg, #0d1712, #294b3b);
+}
+
+.hero-content {
+    width: min(52%, 700px);
+    max-width: 700px;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    color: #f2dfad;
+    font-size: clamp(40px, 5vw, 70px);
+    line-height: 1.12;
+}
+
+.hero-text {
+    color: #f0eee5;
+}
+
+.hero-art {
+    display: none;
+}
+
+.hero-ornament {
+    position: absolute;
+    right: 5%;
+    bottom: 20px;
+    color: #d9b96d;
+    font-family: serif;
+    font-size: 22px;
+    letter-spacing: 7px;
+    opacity: .7;
+    z-index: 1;
+}
+
+.admin-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 46px;
+    align-items: center;
+}
+
+.admin-image {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    min-height: 0;
+    overflow: hidden;
+    border: 2px solid #c7a568;
+    border-radius: 8px;
+    background: #17251f;
+    box-shadow: 10px 10px 0 #c7a56835;
+}
+
+.admin-image img {
+    display: block;
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    object-position: center;
+    filter: saturate(.9) contrast(1.03);
+}
+
+.admin-image figcaption {
+    padding: 10px 14px;
+    color: #f4e8c8;
+    background: linear-gradient(90deg, #14231b, #294b3b);
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+@media (max-width: 800px) {
+    .hero {
+        min-height: 590px;
+        padding: 62px 7%;
+        background:
+            linear-gradient(90deg, #10251bf5 0%, #10251bdc 55%, #10251b8c 100%),
+            url("https://commons.wikimedia.org/wiki/Special:FilePath/%E6%B8%85%20%E4%BD%9A%E5%90%8D%20%E3%80%8A%E6%B8%85%E5%9C%A3%E7%A5%96%E5%BA%B7%E7%86%99%E7%9A%87%E5%B8%9D%E6%9C%9D%E6%9C%8D%E5%83%8F%E3%80%8B.jpg?width=1200")
+            center right / cover no-repeat,
+            linear-gradient(115deg, #0d1712, #294b3b);
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .hero-ornament {
+        right: 7%;
+        font-size: 16px;
+    }
+
+    .admin-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .admin-image img {
+        height: clamp(220px, 58vw, 340px);
+    }
+}
