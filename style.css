@@ -1070,3 +1070,56 @@ footer {
         height: clamp(220px, 58vw, 340px);
     }
 }
+
+
+/* Interactive historical timeline filters */
+.timeline-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 28px 0 10px;
+}
+.timeline-filter {
+    border: 1px solid #c7a56880;
+    border-radius: 999px;
+    padding: 9px 16px;
+    background: #20392b;
+    color: #f3f0e9;
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+.timeline-filter:hover,
+.timeline-filter.is-active {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--dark);
+}
+.timeline-filter:focus-visible {
+    outline: 3px solid #f3f0e9;
+    outline-offset: 3px;
+}
+.timeline-status {
+    min-height: 1.8em;
+    margin-bottom: 22px;
+    color: #d7c49a;
+    font-size: 12px;
+}
+.timeline-item[hidden] {
+    display: none;
+}
+@media (max-width: 450px) {
+    .timeline-controls {
+        gap: 8px;
+    }
+    .timeline-filter {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .timeline-filter {
+        transition: none;
+    }
+}

@@ -168,8 +168,16 @@
             <p class="section-label">04 — ТҮҮХЭН ЭРГЭЛТ</p>
             <h2>1911 он: Үндэсний эрх чөлөөний хувьсгал</h2>
 
+            <div class="timeline-controls" role="group" aria-label="Түүхэн үеэр шүүх">
+                <button class="timeline-filter is-active" type="button" data-filter="all" aria-pressed="true">Бүгд</button>
+                <button class="timeline-filter" type="button" data-filter="early" aria-pressed="false">1691 он</button>
+                <button class="timeline-filter" type="button" data-filter="middle" aria-pressed="false">XVIII–XIX зуун</button>
+                <button class="timeline-filter" type="button" data-filter="independence" aria-pressed="false">1911 он</button>
+                <button class="timeline-filter" type="button" data-filter="reform" aria-pressed="false">1915–1919</button>
+            </div>
+            <p class="timeline-status" aria-live="polite">Нийт 4 түүхэн үйл явдал</p>
             <div class="timeline">
-                <div class="timeline-item">
+                <div class="timeline-item" data-era="early">
                     <span class="year">1691</span>
                     <div>
                         <h3>Долоннуурын чуулган</h3>
@@ -180,7 +188,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item">
+                <div class="timeline-item" data-era="middle">
                     <span class="year">XVIII–XIX зуун</span>
                     <div>
                         <h3>Хууль цаазын тогтолцоо</h3>
@@ -192,7 +200,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item">
+                <div class="timeline-item" data-era="independence">
                     <span class="year">1911</span>
                     <div>
                         <h3>Тусгаар тогтнолоо сэргээв</h3>
@@ -204,7 +212,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item">
+                <div class="timeline-item" data-era="reform">
                     <span class="year">1915–1919</span>
                     <div>
                         <h3>Хууль зүйн шинэчлэл</h3>
@@ -279,6 +287,30 @@
             menuButton.setAttribute("aria-expanded", "false");
             mainNav.classList.remove("is-open");
         }));
+
+        const timelineFilters = document.querySelectorAll(".timeline-filter");
+        const timelineItems = document.querySelectorAll(".timeline-item[data-era]");
+        const timelineStatus = document.querySelector(".timeline-status");
+
+        timelineFilters.forEach(button => {
+            button.addEventListener("click", () => {
+                const filter = button.dataset.filter;
+                let visibleCount = 0;
+                timelineFilters.forEach(filterButton => {
+                    const active = filterButton === button;
+                    filterButton.classList.toggle("is-active", active);
+                    filterButton.setAttribute("aria-pressed", String(active));
+                });
+                timelineItems.forEach(item => {
+                    const visible = filter === "all" || item.dataset.era === filter;
+                    item.hidden = !visible;
+                    if (visible) visibleCount++;
+                });
+                timelineStatus.textContent = filter === "all"
+                    ? "Нийт " + visibleCount + " түүхэн үйл явдал"
+                    : visibleCount + " түүхэн үйл явдал харагдаж байна";
+            });
+        });
     </script>
 </body>
 </html>
